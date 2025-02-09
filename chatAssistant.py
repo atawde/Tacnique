@@ -29,6 +29,10 @@ def runQuery(qry: str):
  		return 'No records found matching query criterion'
 
 	qryResult = ''
+
+	if cursor.fetchone is None:
+		return 'No records found matching query criterion'
+
 	if cursor.fetchone()[0] > 0:
 		for row in cursor:
 			my_string = ' | '.join(map(str, row))
